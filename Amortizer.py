@@ -30,17 +30,17 @@ def pPart(pmt, ipart):
     """
     return pmt - ipart
 
-def pmt(i, nper, pv):
+def pmt(rate, nper, pv):
     """
     Args:
-        i: periodic interest rate
+        rate: periodic interest rate
         nper: number of payment periods in loan
         pv: present value of funds drawn
     Returns:
         payment amount (float) (i.e. payment)
     """
-    m = (1 + i)**nper
-    return (pv * i * m / (m - 1))
+    m = (1 + rate)**nper
+    return (pv * rate * m / (m - 1))
 
 def breakdown(p, pmt, r):
     """Calculates the P/I breakdown of a payment.
