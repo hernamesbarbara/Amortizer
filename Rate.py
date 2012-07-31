@@ -59,7 +59,7 @@ def eApr(i, freq="monthly"):
     """Calculates either the monthly or daily effective APR
     Args:
         i: nominal rate
-        nper: number of compounding periods (e.g. 261 days per year)
+        nper: number of compounding periods (e.g. 12 times per year)
         freq: frequency of compounding --> options: 'Daily', 'Monthly' (default)
     Returns:
         effective annual rate (float)
