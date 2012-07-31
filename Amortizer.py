@@ -1,4 +1,4 @@
-def pRate(i, nper):
+def rate(i, nper):
     """Calculates the Periodic Interest Rate.
     Args:
         i: nominal rate
@@ -30,7 +30,7 @@ def pPart(pmt, ipart):
     """
     return pmt - ipart
 
-def Pmt(i, nper, pv):
+def pmt(i, nper, pv):
     """
     Args:
         i: periodic interest rate
@@ -42,7 +42,7 @@ def Pmt(i, nper, pv):
     m = (1 + i)**nper
     return (pv * i * m / (m - 1))
 
-def Breakdown(p, pmt, r):
+def breakdown(p, pmt, r):
     """Calculates the P/I breakdown of a payment.
     Args:
         p: principal balance outstanding
