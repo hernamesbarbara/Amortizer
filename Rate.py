@@ -12,23 +12,23 @@ def pRate(i, nper):
 def iPart(pb, rate):
     """Calculates interest component of a payment.
     Args:
-        p: principal balance outstanding
+        pb: principal balance outstanding
         rate: periodic interest rate (i.e. rate per period)
     Returns:
         i: portion of this payment to be applied to interest (float)
     """
-    return principal_bal * periodic_rate
+    return pb * rate
 
-def pPart(payment_amount, interest_component):
+def pPart(pmt, ipart):
     """Calculates principal component of a payment.
     Args:
-        payment_amount: total payment amount
-        interest_component: the interest portion of this payment
+        pmt: total payment amount
+        ipart: the interest portion of this payment
     Returns:
         principal portion of this payment (float)
         (i.e. total payment less interest part)
     """
-    return payment_amount - interest_component
+    return pmt - ipart
 
 def Pmt(i, nper, pv):
     """
@@ -55,16 +55,15 @@ def Breakdown(p, pmt, r):
     p = pPart(pmt, i)
     return (i, p)
 
-def eApr(i, freq="daily"):
+def eApr(i, freq="monthly"):
     """Calculates either the monthly or daily effective APR
     Args:
         i: nominal rate
         nper: number of compounding periods (e.g. 261 days per year)
-        freq: frequency of compounding --> options: 'Daily' (default), 'Monthly'
+        freq: frequency of compounding --> options: 'Daily', 'Monthly' (default)
     Returns:
         effective annual rate (float)
     """
-    
     if freq in ['Daily', 'daily']:
         return ((1.+pRate(i,365))**365) -1
     elif freq in ['Monthly', 'monthly']:
